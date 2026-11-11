@@ -1150,17 +1150,17 @@
         <div class="contact-option">
           <span>
             <small class="muted">Телефон мастера</small>
-            <strong id="contact-phone-val">+7 (950) 299-22-21</strong>
+            <strong id="contact-phone-val">+7 (924) 591-54-95</strong>
           </span>
-          <a class="button secondary" id="btn-call-phone" href="tel:+79502992221" style="width: auto; min-height: 40px; padding: 8px 16px;">Позвонить</a>
+          <a class="button secondary" id="btn-call-phone" href="tel:+792459154958" style="width: auto; min-height: 40px; padding: 8px 16px;">Позвонить</a>
         </div>
 
         <div class="contact-option">
           <span>
             <small class="muted">WhatsApp мастера</small>
-            <strong id="contact-wa-val">+7 (950) 299-22-21</strong>
+            <strong id="contact-wa-val">+7 (924) 591-54-95</strong>
           </span>
-          <a class="button secondary" id="btn-open-wa" href="https://wa.me/79502992221" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
+          <a class="button secondary" id="btn-open-wa" href="https://wa.me/792459154958" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
         </div>
 
         <div class="contact-option">
@@ -1185,11 +1185,11 @@
   <script>
     // Dynamic Settings
     let CONFIG = {
-      name: "Химчистка · Владивосток",
+      name: "мягко",
       city: "Владивосток",
       area: "Владивосток и пригород",
-      phone: "+7 (950) 299-22-21",
-      whatsappPhone: "79502992221",
+      phone: "+7 (924) 591-54-95",
+      whatsappPhone: "792459154958",
       telegramUsername: "",
       minimum: 2000,
       travel: 500,
@@ -1281,6 +1281,22 @@
 
     // Load Settings from Server
     async function initSettings() {
+      // Support dynamic URL query parameters (e.g. ?phone=79502992221&city=Владивосток)
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const p = urlParams.get('phone') || urlParams.get('p');
+        if (p) {
+          const clean = p.replace(/\D/g, '');
+          CONFIG.whatsappPhone = clean;
+          CONFIG.phone = p.startsWith('+') ? p : `+${p}`;
+        }
+        if (urlParams.get('city')) CONFIG.city = urlParams.get('city');
+        if (urlParams.get('name')) CONFIG.name = urlParams.get('name');
+        if (urlParams.get('area')) CONFIG.area = urlParams.get('area');
+      } catch (e) {
+        console.warn('URL params parse error', e);
+      }
+
       applyConfigToUI();
       try {
         const res = await fetch('/api/settings');

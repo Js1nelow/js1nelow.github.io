@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Химчистка мебели · Владивосток</title>
+  <meta name="description" content="Выездная чистка диванов, кресел, матрасов и стульев во Владивостоке и пригороде. Расчёт по тарифам и выезд в удобный день." />
+  <meta name="theme-color" content="#f5f7fb" id="meta-theme-color" />
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Immediate Theme Initialization (Zero Flash) -->
+  <script>
+    try {
+      const savedTheme = JSON.parse(localStorage.getItem('myagko.v1.theme') || 'null');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const activeTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = activeTheme;
+      const meta = document.getElementById('meta-theme-color');
+      if (meta) meta.content = (activeTheme === 'dark') ? '#14171a' : '#f5f7fb';
+    } catch (e) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+
+  <!-- Preload all WebP images for INSTANT (0ms) category switching -->
+  <link rel="preload" as="image" href="/images/sofa_clean.webp" />
+  <link rel="preload" as="image" href="/images/sofa_dirty.webp" />
+  <link rel="preload" as="image" href="/images/armchair_clean.webp" />
+  <link rel="preload" as="image" href="/images/armchair_dirty.webp" />
+  <link rel="preload" as="image" href="/images/mattress_clean.webp" />
+  <link rel="preload" as="image" href="/images/mattress_dirty.webp" />
+  <link rel="preload" as="image" href="/images/chair_clean.webp" />
+  <link rel="preload" as="image" href="/images/chair_dirty.webp" />
+
+  <!-- Authentic Fonts: Onest & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Original CSS Stylesheet -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* Atmospheric Apple-style Background */
+    body {
+      background:
+        radial-gradient(circle at 10% 18%, rgba(33, 109, 229, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 90% 55%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
+        var(--bg);
+      position: relative;
+      min-height: 100vh;
+      color: var(--ink);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(20, 45, 68, 0.04) 1px, transparent 1px);
+      background-size: 26px 26px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    :root[data-theme=dark] body {
+      background:
+        radial-gradient(circle at 10% 18%, rgba(33, 109, 229, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 55%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        var(--bg);
+    }
+    :root[data-theme=dark] body::before {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Fixed Stage with Beautiful Floating Picture Card */
+    .stage {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Desktop: 32px generous Apple-like gap between photo and category dock */
+    .ba-slider-container {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      bottom: 130px; /* Generous 32px floating gap above dock on desktop */
+      border-radius: 24px;
+      overflow: hidden;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: ew-resize;
+      background: #142436;
+      box-shadow: 0 8px 30px rgba(20, 45, 68, 0.12);
+    }
+    :root[data-theme=dark] .ba-slider-container {
+      background: #0d141d;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    }
+    /* Mobile: Matches the mobile spacing the user loved */
+    @media (max-width: 800px) {
+      .ba-slider-container {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 108px;
+        border-radius: 20px;
+      }
+    }
+
+    /* Stage Custom Card (When "Другое" / Нестандартная мебель is active) */
+    .stage-custom-card {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      bottom: 130px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 30px rgba(20, 45, 68, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      text-align: center;
+      z-index: 5;
+      user-select: none;
+    }
+    :root[data-theme=dark] .stage-custom-card {
+      background: rgba(18, 26, 34, 0.55);
+      border-color: rgba(255, 255, 255, 0.09);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    @media (max-width: 800px) {
+      .stage-custom-card {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 108px;
+        border-radius: 20px;
+      }
+    }
+    .stage-custom-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(33, 109, 229, 0.1);
+      border: 1px solid rgba(33, 109, 229, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    :root[data-theme=dark] .stage-custom-icon {
+      background: rgba(167, 210, 243, 0.12);
+      border-color: rgba(167, 210, 243, 0.25);
+      color: #a4cff3;
+    }
+    .stage-custom-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 8px 0;
+      letter-spacing: -0.02em;
+    }
+    .stage-custom-desc {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+      max-width: 320px;
+    }
+
+    /* Pre-rendered Instant Images Layers (0ms switch, zero lag, no dark fade flashes) */
+    .ba-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .ba-cat-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none;
+      display: none; /* Instant 0ms toggle */
+    }
+    .ba-cat-img.active {
+      display: block;
+    }
+
+    /* Bottom Layer: AFTER CLEANING (Scoped stacking context) */
+    .ba-layer-after {
+      z-index: 1;
+      isolation: isolate;
+    }
+
+    /* Top Image Layer (Before / Dirty) Clipped */
+    .ba-layer-before {
+      z-index: 2;
+      isolation: isolate;
+      clip-path: inset(0 calc(100% - var(--ba-pos, 50%)) 0 0);
+      -webkit-clip-path: inset(0 calc(100% - var(--ba-pos, 50%)) 0 0);
+      will-change: clip-path;
+    }
+
+    /* Draggable Divider Line */
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--ba-pos, 50%);
+      transform: translateX(-50%);
+      width: 2.5px;
+      background: #ffffff;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+      z-index: 10;
+      pointer-events: none;
+      will-change: left;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+      cursor: grab;
+      background: rgba(20, 45, 68, 0.92);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      border-radius: 999px;
+      padding: 7px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: transform 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+    .ba-handle:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+    .ba-handle:active, .ba-dragging .ba-handle {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.08);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
+    }
+    .ba-handle-arrow {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      stroke-width: 2.5;
+    }
+
+    /* Badges on slider */
+    .ba-badge {
+      position: absolute;
+      z-index: 8;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: opacity 0.12s ease-out;
+      will-change: opacity, visibility;
+    }
+    .ba-badge-before {
+      bottom: 14px;
+      left: 14px;
+      background: rgba(184, 56, 68, 0.88);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .ba-badge-after {
+      bottom: 14px;
+      right: 14px;
+      background: rgba(18, 110, 80, 0.88);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .ba-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+    }
+
+    /* Symmetrical Floating Quote: Perfect iOS/Apple Card, zero overflow, centered */
+    .character-quote {
+      position: absolute !important;
+      top: 16px !important;
+      left: 50% !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: translateX(-50%) !important;
+      margin: 0 !important;
+      width: max-content !important;
+      max-width: min(92%, 460px) !important;
+      box-sizing: border-box !important;
+      background: #ffffff !important;
+      border: 1px solid rgba(20, 45, 68, 0.1) !important;
+      border-radius: 999px !important;
+      padding: 10px 22px !important;
+      font-family: var(--font-onest), sans-serif !important;
+      font-size: 13.5px !important;
+      font-weight: 500 !important;
+      line-height: 1.4 !important;
+      color: #142d44 !important;
+      box-shadow: 0 4px 24px rgba(15, 30, 50, 0.18) !important;
+      white-space: normal !important;
+      text-align: center !important;
+      z-index: 40 !important;
+      pointer-events: none !important;
+      display: block !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    @media (max-width: 800px) {
+      .character-quote {
+        top: 12px !important;
+        padding: 8px 16px !important;
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        max-width: calc(100% - 28px) !important;
+        border-radius: 999px !important;
+      }
+    }
+
+    /* Category Dock: Clean Frosted Glass Floating on Stage Floor */
+    .category-dock {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 25;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-edge);
+      border-radius: 24px;
+      box-shadow: 0 4px 18px rgba(20, 45, 68, 0.08);
+    }
+    @media (max-width: 800px) {
+      .category-dock {
+        bottom: 12px;
+        left: 10px;
+        right: 10px;
+        border-radius: 22px;
+      }
+    }
+
+    /* Cart badge in header */
+    .cart-badge {
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 4px;
+      display: none;
+    }
+    .cart-badge.has-items {
+      display: inline-block;
+    }
+
+    /* Header Theme Toggle Button */
+    .theme-button {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.12s ease-out, background 0.15s ease;
+    }
+    .theme-button:hover {
+      background: var(--surface);
+    }
+    .theme-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Dark Mode Visual Enhancements */
+    :root[data-theme=dark] .character-quote {
+      background: #1c242e !important;
+      color: #edf4fa !important;
+      border-color: rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+    }
+    :root[data-theme=dark] .category-dock {
+      background: rgba(29, 37, 44, 0.85) !important;
+      border-color: rgba(167, 210, 243, 0.18) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+    }
+    :root[data-theme=dark] .category-dock button {
+      color: #abbcca;
+    }
+    :root[data-theme=dark] .category-dock button[aria-selected="true"] {
+      color: #ffffff;
+    }
+
+    /* Views visibility */
+    .page-section {
+      display: block;
+    }
+    .page-section.is-hidden {
+      display: none !important;
+    }
+
+    /* Notification Toast */
+    .toast-pill {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--ink);
+      color: var(--bg);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Photo Upload Previews */
+    .photo-grid-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .photo-thumb {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .photo-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-thumb-remove {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+    }
+
+    /* Cart items container: eliminate duplicate lines */
+    .checkout-items {
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+      gap: 0 !important;
+    }
+    .checkout-item:last-child {
+      border-bottom: none !important;
+    }
+
+    /* Messenger Buttons */
+    .btn-messenger {
+      color: #ffffff !important;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      border-radius: 18px;
+      transition: transform 0.12s ease, filter 0.15s ease;
+      cursor: pointer;
+      text-decoration: none !important;
+      font-size: 15px;
+    }
+    .btn-messenger:hover {
+      filter: brightness(1.05);
+    }
+    .btn-messenger:active {
+      transform: scale(0.98);
+    }
+    .btn-wa {
+      background: #25D366;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    }
+    .btn-tg {
+      background: #229ED9;
+      box-shadow: 0 4px 14px rgba(34, 158, 217, 0.3);
+    }
+    .btn-max {
+      background: linear-gradient(135deg, #0077ff 0%, #0056cc 100%);
+      box-shadow: 0 4px 14px rgba(0, 119, 255, 0.35);
+    }
+
+    /* Cleaning Type Radio Cards (seppa29 special feature) */
+    .cleaning-types-box {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .cleaning-types-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 7px;
+    }
+    .clean-type-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 14px;
+      border: 1.5px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+    .clean-type-btn:hover {
+      border-color: var(--accent);
+    }
+    .clean-type-btn.active {
+      border-color: var(--accent);
+      background: rgba(33, 109, 229, 0.08);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    :root[data-theme=dark] .clean-type-btn.active {
+      background: rgba(33, 109, 229, 0.18);
+    }
+    .clean-type-icon {
+      font-size: 19px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .clean-type-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    .clean-type-info strong {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .clean-type-info small {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .clean-type-price {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      padding: 3px 7px;
+      border-radius: 6px;
+      background: rgba(33, 109, 229, 0.1);
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app" style="--accent: #216de5">
+    
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <a class="brand" href="./" onclick="showView('catalog'); return false;">химчистка</a>
+      
+      <nav class="desktop-nav">
+        <a href="#services" onclick="showView('services'); return false;">Услуги</a>
+        <a href="#how" onclick="showView('how'); return false;">Как это работает</a>
+        <a href="#contacts" onclick="showView('contacts'); return false;">Связаться</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <!-- Theme Toggle Button -->
+        <button class="glass theme-button" id="theme-toggle-btn" onclick="toggleTheme()" title="Переключить тему (светлая / тёмная)" aria-label="Переключить тему">
+          <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none; width: 18px; height: 18px;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="glass cart-button" id="cart-toggle-btn" onclick="toggleCart()">
+          <span class="icon icon-cart" aria-hidden="true"></span>
+          <span>Заказ</span>
+          <span class="cart-badge" id="header-cart-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= MAIN CATALOG VIEW ================= -->
+    <main id="view-catalog" class="page-section">
+      
+      <div class="intro">
+        <h1>Любимая мебель.<br/>Чистая и без запахов.</h1>
+        <p>Владивосток и пригород · 13 лет опыта на Фарпосте · Безопасная эко-химия</p>
+      </div>
+
+      <div class="hero-grid">
+        
+        <!-- LEFT COLUMN: BEFORE & AFTER COMPARISON STAGE -->
+        <section class="stage" aria-label="Сравнение до и после чистки">
+          
+          <div class="ba-slider-container" id="ba-slider-box" style="--ba-pos: 50%;">
+            
+            <!-- Bottom Layer: AFTER CLEANING (All pre-rendered for 0ms lag) -->
+            <div class="ba-layer ba-layer-after">
+              <img id="img-after-sofa" class="ba-cat-img active" src="/images/sofa_clean.webp" alt="Диван после чистки" draggable="false" />
+              <img id="img-after-armchair" class="ba-cat-img" src="/images/armchair_clean.webp" alt="Кресло после чистки" draggable="false" />
+              <img id="img-after-mattress" class="ba-cat-img" src="/images/mattress_clean.webp" alt="Матрас после чистки" draggable="false" />
+              <img id="img-after-chair" class="ba-cat-img" src="/images/chair_clean.webp" alt="Стул после чистки" draggable="false" />
+              <img id="img-after-other" class="ba-cat-img" src="/images/sofa_clean.webp" alt="Другое после чистки" draggable="false" />
+              <div class="ba-badge ba-badge-after">
+                <span class="ba-badge-dot"></span>
+                <span>ПОСЛЕ ЧИСТКИ</span>
+              </div>
+            </div>
+
+            <!-- Top Layer: BEFORE CLEANING (Clipped, All pre-rendered for 0ms lag) -->
+            <div class="ba-layer ba-layer-before" id="ba-before-layer">
+              <img id="img-before-sofa" class="ba-cat-img active" src="/images/sofa_dirty.webp" alt="Диван до чистки" draggable="false" />
+              <img id="img-before-armchair" class="ba-cat-img" src="/images/armchair_dirty.webp" alt="Кресло до чистки" draggable="false" />
+              <img id="img-before-mattress" class="ba-cat-img" src="/images/mattress_dirty.webp" alt="Матрас до чистки" draggable="false" />
+              <img id="img-before-chair" class="ba-cat-img" src="/images/chair_dirty.webp" alt="Стул до чистки" draggable="false" />
+              <img id="img-before-other" class="ba-cat-img" src="/images/sofa_dirty.webp" alt="Другое до чистки" draggable="false" />
+              <div class="ba-badge ba-badge-before">
+                <span class="ba-badge-dot"></span>
+                <span>ДО ЧИСТКИ</span>
+              </div>
+            </div>
+
+            <!-- Draggable Divider Line & Center Pill Handle -->
+            <div class="ba-divider" id="ba-divider">
+              <div class="ba-handle" id="ba-handle" title="Тяните влево или вправо">
+                <svg class="ba-handle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <span>ТЯНИТЕ</span>
+                <svg class="ba-handle-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Symmetrical Floating Speech Quote: Beautifully sized, no overflow -->
+            <p class="character-quote" id="stage-quote">
+              Пятна от кофе, чая и еды исчезают за 40 минут.
+            </p>
+
+          </div>
+
+          <!-- CUSTOM / OTHER FURNITURE ON STAGE (Shows when "Другое" is active) -->
+          <div class="stage-custom-card" id="stage-custom-box" style="display: none;">
+            <div class="stage-custom-icon">
+              <span class="icon icon-other" style="width: 24px; height: 24px;" aria-hidden="true"></span>
+            </div>
+            <h2 class="stage-custom-title">Нестандартная мебель</h2>
+            <p class="stage-custom-desc">Опишите предмет — стоимость оценим по фотографиям.</p>
+          </div>
+
+          <!-- CATEGORY DOCK (Separated from photo frame by generous gap) -->
+          <div class="category-dock glass" role="tablist" aria-label="Тип мебели">
+            
+            <button role="tab" aria-selected="true" data-cat="sofa" onclick="selectCategory('sofa')">
+              <span class="selected-category" id="indicator-sofa"></span>
+              <span class="category-content">
+                <span class="icon icon-sofa" aria-hidden="true"></span>
+                <span>Диван</span>
+              </span>
+            </button>
+
+            <button role="tab" aria-selected="false" data-cat="armchair" onclick="selectCategory('armchair')">
+              <span class="selected-category" id="indicator-armchair" style="display:none"></span>
+              <span class="category-content">
+                <span class="icon icon-armchair" aria-hidden="true"></span>
+                <span>Кресло</span>
+              </span>
+            </button>
+
+            <button role="tab" aria-selected="false" data-cat="mattress" onclick="selectCategory('mattress')">
+              <span class="selected-category" id="indicator-mattress" style="display:none"></span>
+              <span class="category-content">
+                <span class="icon icon-mattress" aria-hidden="true"></span>
+                <span>Матрас</span>
+              </span>
+            </button>
+
+            <button role="tab" aria-selected="false" data-cat="chair" onclick="selectCategory('chair')">
+              <span class="selected-category" id="indicator-chair" style="display:none"></span>
+              <span class="category-content">
+                <span class="icon icon-chair" aria-hidden="true"></span>
+                <span>Стул</span>
+              </span>
+            </button>
+
+            <button role="tab" aria-selected="false" data-cat="other" onclick="selectCategory('other')">
+              <span class="selected-category" id="indicator-other" style="display:none"></span>
+              <span class="category-content">
+                <span class="icon icon-other" aria-hidden="true"></span>
+                <span>Другое</span>
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN: CONFIGURATION PANEL -->
+        <section class="configuration">
+          <div class="panel">
+            
+            <!-- STANDARD FURNITURE CONFIGURATION -->
+            <div id="config-standard" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="row">
+                <h2 id="config-title">Диван</h2>
+                <span class="badge" id="config-badge">Ткань и кожа</span>
+              </div>
+
+              <!-- Dynamic Segments -->
+              <div class="segments" id="config-segments" role="radiogroup">
+                <!-- Rendered via JS -->
+              </div>
+
+              <!-- Cleaning Types Selector (seppa29 4 types) -->
+              <div class="cleaning-types-box" style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">Вид чистки</span>
+                  <small class="muted" id="clean-type-current-badge">Базовая чистка</small>
+                </div>
+                <div class="cleaning-types-grid" role="radiogroup">
+                  <button type="button" class="clean-type-btn active" data-type="dirt" onclick="setCleanType('dirt')">
+                    <span class="clean-type-icon">🧼</span>
+                    <span class="clean-type-info">
+                      <strong>От грязи и пятен</strong>
+                      <small>Глубокая экстракция пыли, разводов и засаленности</small>
+                    </span>
+                    <span class="clean-type-price">Базовая</span>
+                  </button>
+
+                  <button type="button" class="clean-type-btn" data-type="odor" onclick="setCleanType('odor')">
+                    <span class="clean-type-icon">🌸</span>
+                    <span class="clean-type-info">
+                      <strong>От запаха</strong>
+                      <small>Удаление запаха мочи животных, табака, сырости</small>
+                    </span>
+                    <span class="clean-type-price">+400 ₽</span>
+                  </button>
+
+                  <button type="button" class="clean-type-btn" data-type="allergy" onclick="setCleanType('allergy')">
+                    <span class="clean-type-icon">🌿</span>
+                    <span class="clean-type-info">
+                      <strong>Гипоаллергенная</strong>
+                      <small>Эко-составы, безопасно для детей и животных</small>
+                    </span>
+                    <span class="clean-type-price">+400 ₽</span>
+                  </button>
+
+                  <button type="button" class="clean-type-btn" data-type="complex" onclick="setCleanType('complex')">
+                    <span class="clean-type-icon">⭐</span>
+                    <span class="clean-type-info">
+                      <strong>Комплексная (Всё включено)</strong>
+                      <small>Грязь + запахи + гипоаллергенная промывка</small>
+                    </span>
+                    <span class="clean-type-price">+700 ₽</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Extra Options: Heavy Dirt Checkbox -->
+              <label class="check-row" for="opt-heavy-dirt">
+                <span>Застарелые пятна / сильная грязь (+20%)</span>
+                <input type="checkbox" id="opt-heavy-dirt" onchange="calculateCurrentPrice()" />
+              </label>
+
+              <!-- Mattress both sides option (hidden for other categories) -->
+              <label class="check-row" id="opt-both-sides-wrap" for="opt-both-sides" style="display: none;">
+                <span>Чистка с двух сторон (+50%)</span>
+                <input type="checkbox" id="opt-both-sides" onchange="calculateCurrentPrice()" />
+              </label>
+
+              <!-- Quantity Stepper -->
+              <div class="row">
+                <span class="muted">Количество</span>
+                <div class="stepper glass">
+                  <button type="button" aria-label="Меньше" onclick="changeQty(-1)">
+                    <span class="icon icon-minus" aria-hidden="true"></span>
+                  </button>
+                  <output id="config-qty">1</output>
+                  <button type="button" aria-label="Больше" onclick="changeQty(1)">
+                    <span class="icon icon-plus" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Price Preview -->
+              <div class="row preview-price">
+                <span class="muted">Примерно</span>
+                <strong class="price" id="config-price">1 800 ₽</strong>
+              </div>
+
+              <!-- Add to Cart Button -->
+              <button class="button primary" id="add-to-cart-btn" onclick="addToCart()">
+                <span>Добавить в заказ</span>
+                <span class="icon icon-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <!-- CUSTOM FURNITURE CONFIGURATION (Matches user screenshot fe5f5a9a) -->
+            <div id="config-custom" style="display: none; flex-direction: column; gap: 18px;">
+              <h2>Ковры, салон авто или мебель</h2>
+
+              <div class="field" style="gap: 8px;">
+                <label for="other-custom-name" style="font-size: 14px; font-weight: 500; color: var(--muted);">Что будем чистить?</label>
+                <textarea 
+                  id="other-custom-name" 
+                  rows="3" 
+                  placeholder="Например: ковер 3×4 м, салон авто без разбора, пуф или коляска"
+                  style="min-height: 84px; font-size: 15px; line-height: 1.45; resize: none;"></textarea>
+              </div>
+
+              <!-- Cleaning Types Selector for Custom -->
+              <div class="cleaning-types-box" style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 13.5px; font-weight: 600; color: var(--ink);">Вид чистки</span>
+                </div>
+                <div class="cleaning-types-grid" role="radiogroup">
+                  <button type="button" class="clean-type-btn active" data-type-custom="dirt" onclick="setCustomCleanType('dirt')">
+                    <span class="clean-type-icon">🧼</span>
+                    <span class="clean-type-info"><strong>От грязи и пятен</strong></span>
+                  </button>
+                  <button type="button" class="clean-type-btn" data-type-custom="odor" onclick="setCustomCleanType('odor')">
+                    <span class="clean-type-icon">🌸</span>
+                    <span class="clean-type-info"><strong>От запаха</strong></span>
+                  </button>
+                  <button type="button" class="clean-type-btn" data-type-custom="allergy" onclick="setCustomCleanType('allergy')">
+                    <span class="clean-type-icon">🌿</span>
+                    <span class="clean-type-info"><strong>Гипоаллергенная</strong></span>
+                  </button>
+                  <button type="button" class="clean-type-btn" data-type-custom="complex" onclick="setCustomCleanType('complex')">
+                    <span class="clean-type-icon">⭐</span>
+                    <span class="clean-type-info"><strong>Комплексная</strong></span>
+                  </button>
+                </div>
+              </div>
+
+              <label class="check-row" for="other-heavy-dirt">
+                <span>Застарелые пятна / сильная грязь</span>
+                <input type="checkbox" id="other-heavy-dirt" />
+              </label>
+
+              <div class="row quantity">
+                <span class="muted">Количество</span>
+                <div class="stepper glass">
+                  <button type="button" aria-label="Меньше" onclick="changeOtherQty(-1)">
+                    <span class="icon icon-minus" aria-hidden="true"></span>
+                  </button>
+                  <output id="other-qty-display">1</output>
+                  <button type="button" aria-label="Больше" onclick="changeOtherQty(1)">
+                    <span class="icon icon-plus" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 4px;">
+                <span class="muted">Стоимость</span>
+                <strong style="font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em;">По фото</strong>
+              </div>
+
+              <button type="button" class="button primary" onclick="addCustomToCart()">
+                <span>Добавить в заказ</span>
+                <span class="icon icon-arrow" aria-hidden="true"></span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ================= CHECKOUT / CART VIEW ================= -->
+    <main id="view-checkout" class="page-section order-page is-hidden">
+      
+      <button class="back link" onclick="showView('catalog')">
+        <span class="icon icon-arrow" style="transform: rotate(180deg);" aria-hidden="true"></span>
+        <span>К выбору мебели</span>
+      </button>
+
+      <div class="order-heading">
+        <span class="eyebrow muted">Расчет и бронирование</span>
+        <h1>Ваш заказ</h1>
+      </div>
+
+      <div class="order-layout checkout">
+        
+        <!-- Left Column: Items & Details Form -->
+        <div class="request-fields" style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- Cart Items List -->
+          <div class="checkout-block" id="cart-items-block">
+            <h2>Выбранная мебель</h2>
+            <div id="cart-items-container" class="checkout-items">
+              <!-- Rendered via JS -->
+            </div>
+            
+            <div id="min-order-warning" class="error" style="display: none;">
+              Минимальная сумма выезда — 2 000 ₽. Добавьте мебель в заказ.
+            </div>
+          </div>
+
+          <!-- Where & When -->
+          <div class="checkout-block">
+            <h2>Куда и когда приехать</h2>
+            
+            <div class="field">
+              <label for="order-street">Улица и дом</label>
+              <input type="text" id="order-street" placeholder="ул. Ленина, д. 14" required />
+            </div>
+
+            <div class="field">
+              <label for="order-apt">Квартира / офис, подъезд, этаж</label>
+              <input type="text" id="order-apt" placeholder="кв. 42, 2 подъезд, 4 этаж" />
+            </div>
+
+            <label class="check-row address-outside" for="order-outside-city">
+              <span>Выезд в пригород / за город (+500 ₽)</span>
+              <input type="checkbox" id="order-outside-city" onchange="renderCheckoutSummary()" />
+            </label>
+
+            <div class="field-pair visit-fields" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="field">
+                <label for="order-date">Удобная дата</label>
+                <input type="date" id="order-date" />
+              </div>
+              <div class="field">
+                <label for="order-time">Время визита</label>
+                <select id="order-time">
+                  <option value="09:00 – 12:00">09:00 – 12:00</option>
+                  <option value="12:00 – 15:00" selected>12:00 – 15:00</option>
+                  <option value="15:00 – 18:00">15:00 – 18:00</option>
+                  <option value="18:00 – 21:00">18:00 – 21:00</option>
+                  <option value="Как можно скорее">Как можно скорее</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo Note Block (Photos sent directly in messenger chat) -->
+          <div class="checkout-block photo-panel" style="background: rgba(33, 109, 229, 0.05); border: 1px dashed rgba(33, 109, 229, 0.3);">
+            <div class="row" style="gap: 12px; align-items: flex-start;">
+              <span style="font-size: 26px;">📸</span>
+              <div style="flex: 1;">
+                <strong style="font-size: 15px; display: block; margin-bottom: 4px;">Фотографии мебели</strong>
+                <p class="section-note" style="margin: 0; font-size: 13px; line-height: 1.45;">
+                  Фотографии мебели можно отправить прямо в личные сообщения в чат мессенджера (WhatsApp / Telegram) после отправки заявки — мастер сразу оценит ткань и пятна.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="checkout-block">
+            <h2>Контактные данные</h2>
+            
+            <div class="field">
+              <label for="order-phone">Номер телефона</label>
+              <input type="tel" id="order-phone" placeholder="+7 (___) ___-__-__" required />
+            </div>
+
+            <div class="field">
+              <label for="order-name">Ваше имя</label>
+              <input type="text" id="order-name" placeholder="Как к вам обращаться" required />
+            </div>
+
+            <div class="field">
+              <label for="order-comment">Комментарий или пожелания</label>
+              <textarea id="order-comment" placeholder="Домофон, домашние животные, характер загрязнений"></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Summary & Messenger Send Buttons -->
+        <div class="order-summary">
+          <h2>Предварительный расчёт</h2>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 18px;">
+            <div class="row">
+              <span class="muted">Чистка мебели:</span>
+              <span class="price" id="summary-items-price">0 ₽</span>
+            </div>
+            <div class="row" id="summary-travel-row" style="display: none;">
+              <span class="muted">Выезд за город:</span>
+              <span class="price" id="summary-travel-price">+500 ₽</span>
+            </div>
+          </div>
+
+          <div class="row total" style="align-items: baseline;">
+            <span style="font-size: 16px; font-weight: 600;">Итого:</span>
+            <strong class="price" id="summary-total-price" style="font-size: 36px; color: var(--accent);">0 ₽</strong>
+          </div>
+
+          <p class="section-note">
+            Заявка сразу поступит мастеру в мессенджер с составом заказа, адресом и фотографиями для мгновенного подтверждения.
+          </p>
+
+          <!-- Direct Messenger Send Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+            <button type="button" class="btn-messenger btn-wa" onclick="sendOrderVia('whatsapp')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.076-2.129-.533-1.748-.742-2.868-2.526-2.955-2.642-.088-.116-.708-.941-.708-1.795s.447-1.274.606-1.449c.16-.175.348-.219.463-.219.116 0 .232.001.333.006.107.005.25.04.39.378.145.348.492 1.203.535 1.29.043.088.072.19.014.305-.058.116-.088.19-.175.291-.088.102-.185.228-.264.306-.088.088-.18.183-.078.358.102.175.454.748.974 1.212.671.597 1.238.782 1.413.87.175.088.277.073.379-.044.102-.116.436-.508.552-.682.116-.175.232-.145.39-.088.16.058 1.014.478 1.188.565.175.088.291.13.334.204.043.073.043.422-.101.827z"/>
+              </svg>
+              <span>Отправить в WhatsApp</span>
+            </button>
+
+            <button type="button" class="btn-messenger btn-tg" onclick="sendOrderVia('telegram')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
+              </svg>
+              <span>Отправить в Telegram</span>
+            </button>
+
+            <button type="button" class="button secondary" style="min-height: 48px; font-size: 14px;" onclick="sendOrderVia('direct')">
+              Оформить на сайте без мессенджера
+            </button>
+          </div>
+
+          <small class="muted" style="text-align: center; font-size: 11px; line-height: 1.4; margin-top: 8px;">
+            Без предоплаты. Оплата только мастеру на месте после проверки чистоты мебели.
+          </small>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- ================= DEDICATED SERVICES VIEW ================= -->
+    <main id="view-services" class="page-section is-hidden" style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px;">
+      
+      <button class="back link" onclick="showView('catalog')">
+        <span class="icon icon-arrow" style="transform: rotate(180deg);" aria-hidden="true"></span>
+        <span>Вернуться к выбору мебели</span>
+      </button>
+
+      <div>
+        <h1 style="font-size: 44px; letter-spacing: -0.03em; margin-bottom: 12px;">Услуги выездной химчистки</h1>
+        <p class="muted" style="font-size: 18px;">Глубокая очистка текстиля и кожи профессиональным экстракционным оборудованием в Москве и Подмосковье.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div class="panel">
+          <span class="icon icon-sofa" style="width: 32px; height: 32px; color: var(--accent);"></span>
+          <h2>Диваны прямые и угловые</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Выводим кофе, вино, жировые следы, засаленность подлокотников и шерсть домашних животных. Включает чистку спального места и подушек.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <strong class="price" style="font-size: 20px;" id="srv-sofa-price">От 1 800 ₽</strong>
+            <button class="button secondary" style="width: auto; min-height: 36px; padding: 6px 14px; font-size: 12px;" onclick="selectCategory('sofa'); showView('catalog');">Выбрать</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="icon icon-armchair" style="width: 32px; height: 32px; color: var(--accent);"></span>
+          <h2>Кресла и реклайнеры</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Очищение обивки от засаленности, пыли и запахов. Подходит для велюра, шенилла, флока, рогожки и натуральной кожи.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <strong class="price" style="font-size: 20px;" id="srv-armchair-price">От 1 200 ₽</strong>
+            <button class="button secondary" style="width: auto; min-height: 36px; padding: 6px 14px; font-size: 12px;" onclick="selectCategory('armchair'); showView('catalog');">Выбрать</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="icon icon-mattress" style="width: 32px; height: 32px; color: var(--accent);"></span>
+          <h2>Ортопедические матрасы</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Глубокая санитарная дезинфекция, выведение желтых ореолов, разводов пота и нейтрализация пылевых клещей.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <strong class="price" style="font-size: 20px;" id="srv-mattress-price">От 1 400 ₽</strong>
+            <button class="button secondary" style="width: auto; min-height: 36px; padding: 6px 14px; font-size: 12px;" onclick="selectCategory('mattress'); showView('catalog');">Выбрать</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="icon icon-chair" style="width: 32px; height: 32px; color: var(--accent);"></span>
+          <h2>Стулья и банкетки</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Обеденные кухонные стулья, банкетки, офисные кресла. Удаление пятен от еды, чая и соусов.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <strong class="price" style="font-size: 20px;" id="srv-chair-price">От 350 ₽</strong>
+            <button class="button secondary" style="width: auto; min-height: 36px; padding: 6px 14px; font-size: 12px;" onclick="selectCategory('chair'); showView('catalog');">Выбрать</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="icon icon-other" style="width: 32px; height: 32px; color: var(--accent);"></span>
+          <h2>Ковры и ковролин</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Чистка синтетических и шерстяных ковров на дому. Поднятие примятого ворса, удаление въевшейся уличной грязи.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <strong class="price" style="font-size: 20px;">От 250 ₽ / м²</strong>
+            <button class="button secondary" style="width: auto; min-height: 36px; padding: 6px 14px; font-size: 12px;" onclick="selectCategory('other'); showView('catalog');">Выбрать</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <span class="icon icon-arrow" style="width: 32px; height: 32px; color: #16a34a; transform: rotate(45deg);"></span>
+          <h2>Удаление сложных запахов</h2>
+          <p class="muted" style="font-size: 14px; line-height: 1.5;">
+            Нейтрализация запаха мочи животных, табака, гари и сырости с помощью профессиональных энзимных деструкторов Chemspec.
+          </p>
+          <div class="row" style="margin-top: auto;">
+            <span class="badge" style="background: #f0fdf4; color: #15803d; border-color: #86efac;">Гарантия свежести</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="button primary" onclick="showView('catalog')" style="max-width: 280px; margin: 0 auto;">
+        Рассчитать стоимость чистки
+      </button>
+
+    </main>
+
+    <!-- ================= DEDICATED HOW IT WORKS VIEW ================= -->
+    <main id="view-how" class="page-section is-hidden" style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px;">
+      
+      <button class="back link" onclick="showView('catalog')">
+        <span class="icon icon-arrow" style="transform: rotate(180deg);" aria-hidden="true"></span>
+        <span>Вернуться к выбору мебели</span>
+      </button>
+
+      <div>
+        <h1 style="font-size: 44px; letter-spacing: -0.03em; margin-bottom: 12px;">Как проходит чистка мебели</h1>
+        <p class="muted" style="font-size: 18px;">4 этапа профессиональной экстракции по немецким стандартам гигиены без резких запахов и опасной химии.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+        <div class="panel">
+          <strong style="color: var(--accent); font-size: 28px; font-family: var(--font-price);">01</strong>
+          <h3>Осмотр и тест ткани</h3>
+          <p class="muted" style="font-size: 13.5px; line-height: 1.5;">
+            Мастер определяет тип текстиля (натуральный, смесовый, синтетика) и происхождение пятен, тестирует реакцию ткани на незаметном участке.
+          </p>
+        </div>
+
+        <div class="panel">
+          <strong style="color: var(--accent); font-size: 28px; font-family: var(--font-price);">02</strong>
+          <h3>Активный преспрей</h3>
+          <p class="muted" style="font-size: 13.5px; line-height: 1.5;">
+            Наносится гипоаллергенный состав Chemspec/Kiehl. Энзимы бережно расщепляют застарелый жир, белковые загрязнения и пигмент пятен.
+          </p>
+        </div>
+
+        <div class="panel">
+          <strong style="color: var(--accent); font-size: 28px; font-family: var(--font-price);">03</strong>
+          <h3>Глубокая экстракция</h3>
+          <p class="muted" style="font-size: 13.5px; line-height: 1.5;">
+            Мощный экстрактор Santoemma под давлением 9 бар подает воду и одновременно вытягивает грязь из глубины волокон и наполнителя.
+          </p>
+        </div>
+
+        <div class="panel">
+          <strong style="color: var(--accent); font-size: 28px; font-family: var(--font-price);">04</strong>
+          <h3>Кондиционер и сушка</h3>
+          <p class="muted" style="font-size: 13.5px; line-height: 1.5;">
+            Промывка кислым ополаскивателем нейтрализует остатки химии, ворс становится шелковистым. Мебель полностью высыхает за 3–5 часов.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison Panel -->
+      <div class="panel" style="background: var(--surface); border: 1px solid var(--line); padding: 28px;">
+        <h2>Почему нельзя чистить диван бытовой пеной</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 14px;">
+          <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 16px; padding: 18px; color: #991b1b;">
+            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">❌ Бытовая пена из магазина (Ваниш)</strong>
+            <p style="font-size: 13px; margin: 0; line-height: 1.5;">
+              Загоняет грязь вглубь поролона. Не вымывается и застывает липким мыльным слоем, притягивая в 3 раза больше пыли уже через неделю.
+            </p>
+          </div>
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 18px; color: #166534;">
+            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">✓ Профессиональная экстракция</strong>
+            <p style="font-size: 13px; margin: 0; line-height: 1.5;">
+              Полное физическое удаление грязи из ткани в бак пылесоса. Обивка нейтрализуется и остается безопасной для детей и животных.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button class="button primary" onclick="showView('catalog')" style="max-width: 280px; margin: 0 auto;">
+        Рассчитать стоимость
+      </button>
+
+    </main>
+
+    <!-- ================= CONTACTS VIEW ================= -->
+    <main id="view-contacts" class="page-section is-hidden" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      
+      <button class="back link" onclick="showView('catalog')">
+        <span class="icon icon-arrow" style="transform: rotate(180deg);" aria-hidden="true"></span>
+        <span>Вернуться к выбору мебели</span>
+      </button>
+
+      <div>
+        <span class="badge" id="contacts-area-badge" style="margin-bottom: 8px;">Владивосток и пригород</span>
+        <h1 style="font-size: 40px; letter-spacing: -0.03em;">Будем на связи</h1>
+        <p class="muted" style="margin-top: 8px;">Принимаем заявки круглосуточно. Выезд мастеров по Владивостоку и пригороду.</p>
+      </div>
+
+      <div class="panel contact-card">
+        <div class="contact-option">
+          <span>
+            <small class="muted">Телефон мастера</small>
+            <strong id="contact-phone-val">+7 (950) 299-22-21</strong>
+          </span>
+          <a class="button secondary" id="btn-call-phone" href="tel:+79502992221" style="width: auto; min-height: 40px; padding: 8px 16px;">Позвонить</a>
+        </div>
+
+        <div class="contact-option">
+          <span>
+            <small class="muted">WhatsApp мастера</small>
+            <strong id="contact-wa-val">+7 (950) 299-22-21</strong>
+          </span>
+          <a class="button secondary" id="btn-open-wa" href="https://wa.me/79502992221" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
+        </div>
+
+        <div class="contact-option">
+          <span>
+            <small class="muted">Зона выезда</small>
+            <strong style="font-size: 18px;" id="contact-zone-val">Владивосток, Артём и пригород (до 30 км)</strong>
+          </span>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast-pill" id="app-toast">
+    <span class="icon icon-cart" style="width: 18px; height: 18px;"></span>
+    <span id="toast-text">Позиция добавлена в заказ</span>
+  </div>
+
+  <!-- Client Application Logic -->
+  <script>
+    // Dynamic Settings
+    let CONFIG = {
+      name: "Химчистка · Владивосток",
+      city: "Владивосток",
+      area: "Владивосток и пригород",
+      phone: "+7 (950) 299-22-21",
+      whatsappPhone: "79502992221",
+      telegramUsername: "",
+      minimum: 2000,
+      travel: 500,
+      dirtPercent: 20,
+      bothSidesPercent: 50,
+      timeSlots: [
+        "Утро (09:00 – 12:00)",
+        "День (12:00 – 15:00)",
+        "День (15:00 – 18:00)",
+        "Вечер (18:00 – 21:00)",
+        "Как можно скорее"
+      ],
+      cleaningTypes: {
+        dirt: { id: "dirt", label: "От грязи и пятен", badge: "Базовая чистка", price: 0, desc: "Глубокая экстракция пыли, разводов и засаленности" },
+        odor: { id: "odor", label: "От запаха", badge: "+400 ₽", price: 400, desc: "Удаление запаха мочи животных, табака, сырости" },
+        allergy: { id: "allergy", label: "Гипоаллергенная", badge: "+400 ₽", price: 400, desc: "Эко-составы, безопасно для детей и аллергиков" },
+        complex: { id: "complex", label: "Комплексная (Всё включено)", badge: "+700 ₽", price: 700, desc: "Грязь + запахи + гипоаллергенная промывка" }
+      },
+      categories: {
+        sofa: {
+          title: "Диван",
+          badge: "Ткань и кожа",
+          quote: "Пятна от кофе, чая, еды и засаленности исчезают за 40–60 минут.",
+          variants: [
+            { id: "two", label: "2 места (прямой)", basePrice: 2000, rateKey: "sofa_two" },
+            { id: "three", label: "3 места (прямой)", basePrice: 2600, rateKey: "sofa_three" },
+            { id: "corner", label: "Угловой (3–4 места)", basePrice: 3600, rateKey: "sofa_corner" },
+            { id: "big_corner", label: "Большой П-образный", basePrice: 4800, rateKey: "sofa_big_corner" }
+          ]
+        },
+        armchair: {
+          title: "Кресло",
+          badge: "Обивка и ворс",
+          quote: "Глубокая экстракция вытягивает пыль, запахи и засаленность.",
+          variants: [
+            { id: "standard", label: "Стандартное кресло", basePrice: 1200, rateKey: "armchair_standard" },
+            { id: "recliner", label: "Кресло-кровать / Реклайнер", basePrice: 1600, rateKey: "armchair_recliner" },
+            { id: "office", label: "Офисное / Компьютерное", basePrice: 900, rateKey: "armchair_office" }
+          ]
+        },
+        mattress: {
+          title: "Матрас",
+          badge: "Гипоаллергенно",
+          quote: "Удаление желтизны, застарелых разводов, пылевых клещей и запахов.",
+          hasBothSides: true,
+          variants: [
+            { id: "baby", label: "Детский матрас", basePrice: 1000, rateKey: "mattress_baby" },
+            { id: "single", label: "Односпальный (до 90 см)", basePrice: 1500, rateKey: "mattress_single" },
+            { id: "half", label: "Полуторный (120–140 см)", basePrice: 1800, rateKey: "mattress_half" },
+            { id: "double", label: "Двуспальный (160–200 см)", basePrice: 2200, rateKey: "mattress_double" }
+          ]
+        },
+        chair: {
+          title: "Стул",
+          badge: "Обеденная зона",
+          quote: "Обивка стульев снова как из салона — свежая, чистая и яркая.",
+          variants: [
+            { id: "seat", label: "Стул без спинки / табурет", basePrice: 350, rateKey: "chair_seat" },
+            { id: "back", label: "Стул с мягкой спинкой", basePrice: 500, rateKey: "chair_back" },
+            { id: "kitchen", label: "Кухонный мягкий уголок", basePrice: 2200, rateKey: "chair_kitchen" }
+          ]
+        },
+        other: {
+          title: "Ковры, салон авто и др.",
+          badge: "Индивидуально",
+          quote: "Ковры на дому, химчистка салонов авто без разбора, пуфы и коляски.",
+          variants: [
+            { id: "carpet_short", label: "Ковёр короткий ворс (до 6 м²)", basePrice: 1800, rateKey: "carpet_short" },
+            { id: "carpet_long", label: "Ковёр высокий ворс (до 6 м²)", basePrice: 2400, rateKey: "carpet_long" },
+            { id: "auto_front", label: "Авто: передние сиденья (пара)", basePrice: 2000, rateKey: "auto_front" },
+            { id: "auto_rear", label: "Авто: задний диван", basePrice: 2000, rateKey: "auto_rear" },
+            { id: "auto_full", label: "Авто: комплекс салона без разбора", basePrice: 5000, rateKey: "auto_full" },
+            { id: "pouf", label: "Пуф / Банкетка", basePrice: 700, rateKey: "other_pouf" }
+          ]
+        }
+      }
+    };
+
+    // Current State
+    let currentCategoryKey = "sofa";
+    let currentVariantId = "two";
+    let currentQty = 1;
+    let cart = [];
+    let uploadedPhotos = [];
+
+    function applyConfigToUI() {
+      const pVal = document.getElementById('contact-phone-val');
+      if (pVal) pVal.textContent = CONFIG.phone;
+      const callBtn = document.getElementById('btn-call-phone');
+      if (callBtn) callBtn.href = `tel:${CONFIG.phone.replace(/[^0-9+]/g, '')}`;
+
+      const waVal = document.getElementById('contact-wa-val');
+      if (waVal) waVal.textContent = CONFIG.phone;
+      const waBtn = document.getElementById('btn-open-wa');
+      if (waBtn) waBtn.href = `https://wa.me/${CONFIG.whatsappPhone.replace(/\D/g, '')}`;
+
+      const areaBadge = document.getElementById('contacts-area-badge');
+      if (areaBadge && CONFIG.area) areaBadge.textContent = CONFIG.area;
+
+      const zoneVal = document.getElementById('contact-zone-val');
+      if (zoneVal) zoneVal.textContent = `${CONFIG.city}, Артём и пригород (до 30 км)`;
+    }
+
+    // Load Settings from Server
+    async function initSettings() {
+      applyConfigToUI();
+      try {
+        const res = await fetch('/api/settings');
+        if (res.ok) {
+          const s = await res.json();
+          CONFIG.phone = s.phone || CONFIG.phone;
+          CONFIG.whatsappPhone = s.whatsappPhone || CONFIG.whatsappPhone;
+          CONFIG.telegramUsername = s.telegramUsername || CONFIG.telegramUsername;
+          CONFIG.maxUrl = s.maxUrl || CONFIG.maxUrl;
+          CONFIG.minimum = Number(s.minimum) || CONFIG.minimum;
+          CONFIG.travel = Number(s.travel) || CONFIG.travel;
+          CONFIG.dirtPercent = Number(s.dirtPercent) || CONFIG.dirtPercent;
+          CONFIG.bothSidesPercent = Number(s.bothSidesPercent) || CONFIG.bothSidesPercent;
+
+          if (s.rates) {
+            Object.values(CONFIG.categories).forEach(cat => {
+              cat.variants.forEach(v => {
+                if (s.rates[v.rateKey]) v.basePrice = Number(s.rates[v.rateKey]);
+              });
+            });
+          }
+
+          if (s.timeSlots && Array.isArray(s.timeSlots) && s.timeSlots.length) {
+            CONFIG.timeSlots = s.timeSlots;
+            const timeSelect = document.getElementById('order-time');
+            if (timeSelect) {
+              timeSelect.innerHTML = '';
+              CONFIG.timeSlots.forEach((slot, i) => {
+                const opt = document.createElement('option');
+                opt.value = slot;
+                opt.textContent = slot;
+                if (i === 1) opt.selected = true;
+                timeSelect.appendChild(opt);
+              });
+            }
+          }
+
+          applyConfigToUI();
+
+          const tgVal = document.getElementById('contact-tg-val');
+          if (tgVal && CONFIG.telegramUsername) tgVal.textContent = `@${CONFIG.telegramUsername}`;
+          const tgBtn = document.getElementById('btn-open-tg');
+          if (tgBtn && CONFIG.telegramUsername) tgBtn.href = `https://t.me/${CONFIG.telegramUsername}`;
+
+          const maxBtn = document.getElementById('btn-open-max');
+          if (maxBtn && CONFIG.maxUrl) maxBtn.href = CONFIG.maxUrl;
+        }
+      } catch (err) {
+        console.warn('Using default config', err);
+      }
+      selectCategory(currentCategoryKey);
+    }
+
+    // ================= BEFORE & AFTER SLIDER CONTROLLER ================= //
+    const sliderBox = document.getElementById('ba-slider-box');
+    const divider = document.getElementById('ba-divider');
+    const stageQuote = document.getElementById('stage-quote');
+    const badgeBefore = document.querySelector('.ba-badge-before');
+    const badgeAfter = document.querySelector('.ba-badge-after');
+
+    let isDragging = false;
+
+    function updateBadgeOpacities(pct) {
+      if (badgeBefore) {
+        // As slider moves left to show clean, fade out "ДО ЧИСТКИ"
+        if (pct <= 20) {
+          badgeBefore.style.opacity = '0';
+          badgeBefore.style.visibility = 'hidden';
+        } else if (pct < 40) {
+          badgeBefore.style.opacity = String(((pct - 20) / 20).toFixed(2));
+          badgeBefore.style.visibility = 'visible';
+        } else {
+          badgeBefore.style.opacity = '1';
+          badgeBefore.style.visibility = 'visible';
+        }
+      }
+
+      if (badgeAfter) {
+        // As slider moves right to show dirty, fade out "ПОСЛЕ ЧИСТКИ"
+        if (pct >= 80) {
+          badgeAfter.style.opacity = '0';
+          badgeAfter.style.visibility = 'hidden';
+        } else if (pct > 60) {
+          badgeAfter.style.opacity = String(((80 - pct) / 20).toFixed(2));
+          badgeAfter.style.visibility = 'visible';
+        } else {
+          badgeAfter.style.opacity = '1';
+          badgeAfter.style.visibility = 'visible';
+        }
+      }
+    }
+
+    function setSliderPosition(percent) {
+      percent = Math.max(0, Math.min(100, percent));
+      sliderBox.style.setProperty('--ba-pos', `${percent}%`);
+      updateBadgeOpacities(percent);
+    }
+
+    function onPointerMove(e) {
+      if (!isDragging) return;
+      const rect = sliderBox.getBoundingClientRect();
+      const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+      const x = clientX - rect.left;
+      const pct = (x / rect.width) * 100;
+      setSliderPosition(pct);
+    }
+
+    function startDrag(e) {
+      isDragging = true;
+      document.body.classList.add('ba-dragging');
+      if (e.pointerId !== undefined && sliderBox.setPointerCapture) {
+        try { sliderBox.setPointerCapture(e.pointerId); } catch (_) {}
+      }
+      onPointerMove(e);
+    }
+
+    function stopDrag(e) {
+      if (isDragging) {
+        isDragging = false;
+        document.body.classList.remove('ba-dragging');
+        if (e && e.pointerId !== undefined && sliderBox.releasePointerCapture) {
+          try { sliderBox.releasePointerCapture(e.pointerId); } catch (_) {}
+        }
+      }
+    }
+
+    sliderBox.addEventListener('pointerdown', startDrag);
+    window.addEventListener('pointermove', onPointerMove, { passive: false });
+    window.addEventListener('pointerup', stopDrag);
+    window.addEventListener('pointercancel', stopDrag);
+
+    // Initial slider & badge positioning (50%)
+    setSliderPosition(50);
+
+    // Pre-decode all images in memory for 0ms lag
+    window.addEventListener('DOMContentLoaded', () => {
+      setSliderPosition(50);
+      document.querySelectorAll('.ba-cat-img').forEach(img => {
+        if (img.decode) img.decode().catch(() => {});
+      });
+    });
+
+    // ================= THEME TOGGLE CONTROLLER ================= //
+    function toggleTheme() {
+      const current = document.documentElement.dataset.theme || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try {
+        localStorage.setItem('myagko.v1.theme', JSON.stringify(next));
+      } catch (_) {}
+      updateThemeUI(next);
+    }
+
+    function updateThemeUI(theme) {
+      const isDark = theme === 'dark';
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const footerBtn = document.getElementById('footer-theme-toggle');
+      const meta = document.getElementById('meta-theme-color');
+      if (sunIcon) sunIcon.style.display = isDark ? 'block' : 'none';
+      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'block';
+      if (footerBtn) footerBtn.textContent = isDark ? 'Светлая тема' : 'Тёмная тема';
+      if (meta) meta.content = isDark ? '#14171a' : '#f5f7fb';
+    }
+
+    // ================= CUSTOM FURNITURE & CLEANING TYPE CONTROLLER ================= //
+    let otherQty = 1;
+    let currentCleanType = 'dirt';
+    let customCleanType = 'dirt';
+
+    function setCleanType(typeId) {
+      currentCleanType = typeId;
+      document.querySelectorAll('#config-standard .clean-type-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-type') === typeId);
+      });
+      const badge = document.getElementById('clean-type-current-badge');
+      if (badge && CONFIG.cleaningTypes[typeId]) {
+        badge.textContent = CONFIG.cleaningTypes[typeId].badge;
+      }
+      calculateCurrentPrice();
+    }
+
+    function setCustomCleanType(typeId) {
+      customCleanType = typeId;
+      document.querySelectorAll('#config-custom .clean-type-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-type-custom') === typeId);
+      });
+    }
+
+    function changeOtherQty(delta) {
+      otherQty = Math.max(1, Math.min(20, otherQty + delta));
+      const el = document.getElementById('other-qty-display');
+      if (el) el.textContent = otherQty;
+    }
+
+    function addCustomToCart() {
+      const nameInput = document.getElementById('other-custom-name');
+      const itemName = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Ковры / авто / другое';
+      const isHeavyDirt = document.getElementById('other-heavy-dirt')?.checked || false;
+      const cleanTypeObj = CONFIG.cleaningTypes[customCleanType] || CONFIG.cleaningTypes.dirt;
+
+      const item = {
+        id: 'custom_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        category: 'other',
+        categoryName: 'Ковры / авто / другое',
+        variantId: 'custom',
+        variantName: itemName,
+        cleanTypeId: cleanTypeObj.id,
+        cleanTypeLabel: cleanTypeObj.label,
+        cleanTypePrice: cleanTypeObj.price,
+        unitPrice: 0,
+        qty: otherQty,
+        heavyDirt: isHeavyDirt,
+        bothSides: false,
+        total: 0,
+        isCustom: true
+      };
+
+      cart.push(item);
+      updateCartBadge();
+      showToast(`«${itemName}» добавлен в заказ`);
+
+      // Reset custom inputs
+      if (nameInput) nameInput.value = '';
+      otherQty = 1;
+      const qtyEl = document.getElementById('other-qty-display');
+      if (qtyEl) qtyEl.textContent = '1';
+      const dirtEl = document.getElementById('other-heavy-dirt');
+      if (dirtEl) dirtEl.checked = false;
+    }
+
+    // ================= INSTANT CATEGORY SELECTION (0ms delay) ================= //
+    function selectCategory(catKey) {
+      currentCategoryKey = catKey;
+
+      // 1. Update Dock Tabs
+      document.querySelectorAll('.category-dock button').forEach(btn => {
+        const isMatch = btn.getAttribute('data-cat') === catKey;
+        btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        const ind = btn.querySelector('.selected-category');
+        if (ind) ind.style.display = isMatch ? 'block' : 'none';
+      });
+
+      // Special Case: "Другое" / Custom Furniture (Matches user screenshot)
+      if (catKey === 'other') {
+        document.getElementById('ba-slider-box').style.display = 'none';
+        document.getElementById('stage-custom-box').style.display = 'flex';
+        document.getElementById('config-standard').style.display = 'none';
+        document.getElementById('config-custom').style.display = 'flex';
+        return;
+      }
+
+      // Standard Before & After Screen
+      document.getElementById('ba-slider-box').style.display = 'block';
+      document.getElementById('stage-custom-box').style.display = 'none';
+      document.getElementById('config-standard').style.display = 'flex';
+      document.getElementById('config-custom').style.display = 'none';
+
+      const cat = CONFIG.categories[catKey];
+      if (!cat) return;
+
+      // 2. INSTANT Pre-rendered Image Switch (0ms delay, instantaneous GPU draw)
+      document.querySelectorAll('.ba-cat-img.active').forEach(img => img.classList.remove('active'));
+      const afterEl = document.getElementById(`img-after-${catKey}`);
+      const beforeEl = document.getElementById(`img-before-${catKey}`);
+      if (afterEl) afterEl.classList.add('active');
+      if (beforeEl) beforeEl.classList.add('active');
+
+      // 3. Update Quote INSTANTLY without any delay
+      stageQuote.textContent = cat.quote;
+
+      // 4. Update Configuration Panel
+      document.getElementById('config-title').textContent = cat.title;
+      document.getElementById('config-badge').textContent = cat.badge;
+
+      // 5. Render Segments
+      currentVariantId = cat.variants[0].id;
+      currentQty = (catKey === 'chair') ? 2 : 1;
+      document.getElementById('config-qty').textContent = currentQty;
+
+      const segContainer = document.getElementById('config-segments');
+      segContainer.innerHTML = '';
+      cat.variants.forEach(v => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'segment';
+        btn.setAttribute('aria-pressed', v.id === currentVariantId ? 'true' : 'false');
+        btn.textContent = v.label;
+        btn.onclick = () => {
+          currentVariantId = v.id;
+          segContainer.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          calculateCurrentPrice();
+        };
+        segContainer.appendChild(btn);
+      });
+
+      // 6. Show/hide both-sides checkbox for mattresses
+      const bothSidesWrap = document.getElementById('opt-both-sides-wrap');
+      if (cat.hasBothSides) {
+        bothSidesWrap.style.display = 'flex';
+      } else {
+        bothSidesWrap.style.display = 'none';
+        document.getElementById('opt-both-sides').checked = false;
+      }
+
+      calculateCurrentPrice();
+    }
+
+    // ================= PRICE CALCULATION ================= //
+    function calculateCurrentPrice() {
+      const cat = CONFIG.categories[currentCategoryKey];
+      const variant = cat.variants.find(v => v.id === currentVariantId) || cat.variants[0];
+      const cleanTypeObj = CONFIG.cleaningTypes[currentCleanType] || CONFIG.cleaningTypes.dirt;
+
+      let unitPrice = variant.basePrice + (cleanTypeObj.price || 0);
+
+      const heavyDirt = document.getElementById('opt-heavy-dirt').checked;
+      const bothSides = document.getElementById('opt-both-sides').checked;
+
+      if (bothSides && cat.hasBothSides) {
+        unitPrice = Math.round(unitPrice * (1 + CONFIG.bothSidesPercent / 100));
+      }
+      if (heavyDirt) {
+        unitPrice = Math.round(unitPrice * (1 + CONFIG.dirtPercent / 100));
+      }
+
+      const total = unitPrice * currentQty;
+      document.getElementById('config-price').textContent = `${total.toLocaleString('ru-RU')} ₽`;
+      return { unitPrice, total, variant, heavyDirt, bothSides, cleanType: cleanTypeObj };
+    }
+
+    function changeQty(delta) {
+      currentQty = Math.max(1, Math.min(20, currentQty + delta));
+      document.getElementById('config-qty').textContent = currentQty;
+      calculateCurrentPrice();
+    }
+
+    // ================= CART MANAGEMENT ================= //
+    function addToCart() {
+      const calc = calculateCurrentPrice();
+      const cat = CONFIG.categories[currentCategoryKey];
+
+      const cartItem = {
+        id: 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        category: currentCategoryKey,
+        categoryName: cat.title,
+        variantId: calc.variant.id,
+        variantName: calc.variant.label,
+        cleanTypeId: calc.cleanType.id,
+        cleanTypeLabel: calc.cleanType.label,
+        cleanTypePrice: calc.cleanType.price,
+        unitPrice: calc.unitPrice,
+        qty: currentQty,
+        heavyDirt: calc.heavyDirt,
+        bothSides: calc.bothSides,
+        total: calc.total
+      };
+
+      cart.push(cartItem);
+      updateCartBadge();
+      showToast(`«${cat.title}: ${calc.variant.label}» добавлен в заказ`);
+
+      const addBtn = document.getElementById('add-to-cart-btn');
+      const originalText = addBtn.textContent;
+      addBtn.textContent = '✓ Добавлено!';
+      addBtn.style.background = 'var(--success)';
+      setTimeout(() => {
+        addBtn.textContent = originalText;
+        addBtn.style.background = '';
+      }, 900);
+    }
+
+    function updateCartBadge() {
+      const badge = document.getElementById('header-cart-badge');
+      const count = cart.reduce((acc, it) => acc + it.qty, 0);
+      badge.textContent = count;
+      if (count > 0) {
+        badge.classList.add('has-items');
+      } else {
+        badge.classList.remove('has-items');
+      }
+    }
+
+    function removeCartItem(itemId) {
+      cart = cart.filter(it => it.id !== itemId);
+      updateCartBadge();
+      renderCheckoutView();
+    }
+
+    function updateItemQty(itemId, delta) {
+      const item = cart.find(it => it.id === itemId);
+      if (!item) return;
+      item.qty = Math.max(1, item.qty + delta);
+      item.total = item.unitPrice * item.qty;
+      renderCheckoutView();
+    }
+
+    function toggleCart() {
+      if (document.getElementById('view-checkout').classList.contains('is-hidden')) {
+        showView('checkout');
+      } else {
+        showView('catalog');
+      }
+    }
+
+    // ================= VIEW SWITCHING ================= //
+    function showView(viewId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('is-hidden'));
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) {
+        target.classList.remove('is-hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      if (viewId === 'checkout') {
+        renderCheckoutView();
+      }
+    }
+
+    // ================= CHECKOUT VIEW RENDERING ================= //
+    function renderCheckoutView() {
+      const container = document.getElementById('cart-items-container');
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 24px; text-align: center; color: var(--muted);">
+            <p>В заказе пока ничего нет.</p>
+            <button class="button secondary" onclick="showView('catalog')" style="margin-top: 12px; width: auto; display: inline-flex;">
+              Выбрать мебель в каталоге
+            </button>
+          </div>
+        `;
+        renderCheckoutSummary();
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const isLast = index === cart.length - 1;
+        const itemEl = document.createElement('div');
+        itemEl.className = 'checkout-item';
+        itemEl.style.cssText = `display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: ${isLast ? 'none' : '1px solid var(--line)'}; gap: 12px;`;
+        
+        let tagsHtml = '';
+        if (item.cleanTypeLabel) tagsHtml += `<span class="badge" style="font-size: 10px; padding: 2px 6px; background: rgba(33, 109, 229, 0.12); color: var(--accent); font-weight: 600;">${item.cleanTypeLabel}</span> `;
+        if (item.isCustom) tagsHtml += '<span class="badge" style="font-size: 10px; padding: 2px 6px; background: rgba(33, 109, 229, 0.12); color: var(--accent);">оценка по фото</span> ';
+        if (item.heavyDirt) tagsHtml += '<span class="badge" style="font-size: 10px; padding: 2px 6px;">застарелые пятна +20%</span> ';
+        if (item.bothSides) tagsHtml += '<span class="badge" style="font-size: 10px; padding: 2px 6px;">2 стороны +50%</span> ';
+
+        const priceText = item.isCustom ? 'По фото' : `${item.total.toLocaleString('ru-RU')} ₽`;
+
+        itemEl.innerHTML = `
+          <div style="flex: 1; min-width: 0;">
+            <strong style="font-size: 15px;">${item.isCustom ? item.variantName : item.categoryName + ' · ' + item.variantName}</strong>
+            <div style="margin-top: 4px;">${tagsHtml}</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="stepper glass" style="min-height: 36px; min-width: 100px;">
+              <button type="button" onclick="updateItemQty('${item.id}', -1)">−</button>
+              <output style="font-size: 13px;">${item.qty}</output>
+              <button type="button" onclick="updateItemQty('${item.id}', 1)">+</button>
+            </div>
+            <strong class="price" style="font-size: 16px; min-width: 80px; text-align: right;">${priceText}</strong>
+            <button type="button" class="link danger" style="padding: 4px;" onclick="removeCartItem('${item.id}')" title="Удалить">✕</button>
+          </div>
+        `;
+        container.appendChild(itemEl);
+      });
+
+      renderCheckoutSummary();
+    }
+
+    function renderCheckoutSummary() {
+      const itemsSum = cart.reduce((sum, it) => sum + (it.isCustom ? 0 : it.total), 0);
+      const hasCustom = cart.some(it => it.isCustom);
+      const isOutside = document.getElementById('order-outside-city').checked;
+      const travelFee = isOutside ? CONFIG.travel : 0;
+      const total = itemsSum + travelFee;
+
+      let itemsPriceText = '';
+      let totalPriceText = '';
+
+      if (hasCustom && itemsSum > 0) {
+        itemsPriceText = `${itemsSum.toLocaleString('ru-RU')} ₽ + по фото`;
+        totalPriceText = `${total.toLocaleString('ru-RU')} ₽ + по фото`;
+      } else if (hasCustom && itemsSum === 0) {
+        itemsPriceText = 'Оценка по фото';
+        totalPriceText = isOutside ? `По фото (+${CONFIG.travel} ₽ выезд)` : 'Оценим по фото';
+      } else {
+        itemsPriceText = `${itemsSum.toLocaleString('ru-RU')} ₽`;
+        totalPriceText = `${total.toLocaleString('ru-RU')} ₽`;
+      }
+
+      document.getElementById('summary-items-price').textContent = itemsPriceText;
+      
+      const travelRow = document.getElementById('summary-travel-row');
+      if (isOutside) {
+        travelRow.style.display = 'flex';
+        document.getElementById('summary-travel-price').textContent = `+${CONFIG.travel} ₽`;
+      } else {
+        travelRow.style.display = 'none';
+      }
+
+      document.getElementById('summary-total-price').textContent = totalPriceText;
+
+      const minWarning = document.getElementById('min-order-warning');
+      if (!hasCustom && itemsSum > 0 && itemsSum < CONFIG.minimum) {
+        minWarning.style.display = 'block';
+      } else {
+        minWarning.style.display = 'none';
+      }
+    }
+
+    // ================= PHOTO UPLOAD LOGIC ================= //
+    function handlePhotoUpload(e) {
+      const files = Array.from(e.target.files);
+      if (!files.length) return;
+
+      const remaining = 3 - uploadedPhotos.length;
+      if (remaining <= 0) {
+        alert('Максимум 3 фотографии');
+        return;
+      }
+
+      const toProcess = files.slice(0, remaining);
+      toProcess.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          uploadedPhotos.push(evt.target.result);
+          renderPhotoPreviews();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderPhotoPreviews() {
+      const box = document.getElementById('photo-previews');
+      box.innerHTML = '';
+      document.getElementById('photo-count-label').textContent = `${uploadedPhotos.length} / 3`;
+
+      uploadedPhotos.forEach((dataUrl, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = 'photo-thumb';
+        thumb.innerHTML = `
+          <img src="${dataUrl}" alt="Фото ${idx + 1}" />
+          <button type="button" class="photo-thumb-remove" onclick="removePhoto(${idx})">✕</button>
+        `;
+        box.appendChild(thumb);
+      });
+    }
+
+    function removePhoto(idx) {
+      uploadedPhotos.splice(idx, 1);
+      renderPhotoPreviews();
+    }
+
+    // ================= PHONE INPUT AUTO-MASK (+7) ================= //
+    function setupPhoneMask() {
+      const phoneInput = document.getElementById('order-phone');
+      if (!phoneInput) return;
+
+      phoneInput.addEventListener('input', () => {
+        let val = phoneInput.value.replace(/\D/g, '');
+        if (!val) {
+          phoneInput.value = '';
+          return;
+        }
+
+        // If user typed '8...' -> convert to '7...'
+        if (val[0] === '8') val = '7' + val.slice(1);
+        // If user typed '9...' -> prepend '7' (e.g. 908... -> +7 (908)...)
+        if (val[0] === '9') val = '7' + val;
+        // If first digit is not 7, prepend 7
+        if (val[0] !== '7') val = '7' + val;
+
+        val = val.substring(0, 11);
+
+        let formatted = '+7';
+        if (val.length > 1) {
+          formatted += ' (' + val.substring(1, Math.min(4, val.length));
+        }
+        if (val.length >= 4) {
+          formatted += ') ' + val.substring(4, Math.min(7, val.length));
+        }
+        if (val.length >= 7) {
+          formatted += '-' + val.substring(7, Math.min(9, val.length));
+        }
+        if (val.length >= 9) {
+          formatted += '-' + val.substring(9, Math.min(11, val.length));
+        }
+
+        phoneInput.value = formatted;
+      });
+
+      phoneInput.addEventListener('focus', () => {
+        if (!phoneInput.value) {
+          phoneInput.value = '+7 (';
+        }
+      });
+
+      phoneInput.addEventListener('blur', () => {
+        if (phoneInput.value === '+7 (' || phoneInput.value === '+7') {
+          phoneInput.value = '';
+        }
+      });
+    }
+
+    // ================= ORDER SUBMISSION TO MESSENGERS ================= //
+    async function sendOrderVia(channel) {
+      if (cart.length === 0) {
+        alert('Пожалуйста, выберите мебель в каталоге перед оформлением');
+        showView('catalog');
+        return;
+      }
+
+      const phone = document.getElementById('order-phone').value.trim();
+      const name = document.getElementById('order-name').value.trim();
+      const street = document.getElementById('order-street').value.trim();
+      const apt = document.getElementById('order-apt').value.trim();
+      const address = apt ? `${street}, ${apt}` : street;
+      const orderDate = document.getElementById('order-date').value;
+      const orderTime = document.getElementById('order-time').value;
+      const comment = document.getElementById('order-comment').value.trim();
+      const travelOutside = document.getElementById('order-outside-city').checked;
+
+      if (!phone || phone.length < 11) {
+        alert('Пожалуйста, укажите ваш контактный номер телефона');
+        document.getElementById('order-phone').focus();
+        return;
+      }
+      if (!name) {
+        alert('Пожалуйста, укажите ваше имя');
+        document.getElementById('order-name').focus();
+        return;
+      }
+      if (!street) {
+        alert('Пожалуйста, укажите улицу и номер дома для выезда мастера');
+        document.getElementById('order-street').focus();
+        return;
+      }
+
+      const hasCustom = cart.some(it => it.isCustom);
+      const itemsSum = cart.reduce((sum, it) => sum + (it.isCustom ? 0 : it.total), 0);
+      const preliminaryTotal = itemsSum + (travelOutside ? CONFIG.travel : 0);
+
+      const payload = {
+        name,
+        phone,
+        address,
+        preferredDate: `${orderDate || 'Ближайшая дата'} (${orderTime})`,
+        comment,
+        travelOutside,
+        cart,
+        preliminaryTotal,
+        hasManualQuote: hasCustom
+      };
+
+      // 1. Save order to backend
+      let orderToken = '';
+      try {
+        const res = await fetch('/api/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (result.success && result.token) {
+          orderToken = result.token;
+        }
+      } catch (e) {
+        console.error('Error saving order record', e);
+      }
+
+      const trackingUrl = orderToken ? `https://${window.location.host}/order/${orderToken}` : `https://${window.location.host}/`;
+
+      // 2. Format Structured Message
+      let itemsText = cart.map(it => {
+        let tags = [];
+        if (it.cleanTypeLabel) tags.push(`чистка: ${it.cleanTypeLabel}`);
+        if (it.heavyDirt) tags.push('застарелые пятна');
+        if (it.bothSides) tags.push('2 стороны');
+        const tagStr = tags.length ? ` (${tags.join(', ')})` : '';
+        if (it.isCustom) {
+          return `• ${it.variantName}${tagStr} × ${it.qty} шт. — Стоимость по фото`;
+        }
+        return `• ${it.categoryName}: ${it.variantName}${tagStr} × ${it.qty} шт. — ${it.total.toLocaleString('ru-RU')} ₽`;
+      }).join('\n');
+
+      if (travelOutside) {
+        itemsText += `\n• Выезд в пригород — ${CONFIG.travel} ₽`;
+      }
+
+      let totalStr = '';
+      if (hasCustom && itemsSum > 0) {
+        totalStr = `${preliminaryTotal.toLocaleString('ru-RU')} ₽ + оценка по фото`;
+      } else if (hasCustom && itemsSum === 0) {
+        totalStr = travelOutside ? `По фото (+${CONFIG.travel} ₽ выезд)` : `Оценим по фото`;
+      } else {
+        totalStr = `${preliminaryTotal.toLocaleString('ru-RU')} ₽`;
+      }
+
+      const messageText = 
+`Здравствуйте! Хочу оформить выездную химчистку:
+
+🛋 Мебель в заказе:
+${itemsText}
+
+💰 Итоговая стоимость: ${totalStr}
+📍 Адрес: ${address}
+📅 Время визита: ${orderDate || 'Ближайшая дата'} (${orderTime})
+👤 Клиент: ${name} (${phone})
+${comment ? `💬 Пожелания: ${comment}\n` : ''}
+📸 Фотографии мебели: отправлю в этот чат`;
+
+      // 3. Dispatch to Messenger
+      const encodedMsg = encodeURIComponent(messageText);
+
+      if (channel === 'whatsapp') {
+        const waClean = (CONFIG.whatsappPhone || '79502992221').replace(/\D/g, '');
+        const waUrl = `https://wa.me/${waClean}?text=${encodedMsg}`;
+        window.open(waUrl, '_blank');
+        if (orderToken) window.location.href = `/order/${orderToken}`;
+      } else if (channel === 'telegram') {
+        const tgUser = (CONFIG.telegramUsername || 'andrew_vartian').replace(/^@/, '');
+        const tgUrl = `https://t.me/${tgUser}?text=${encodedMsg}`;
+        window.open(tgUrl, '_blank');
+        if (orderToken) window.location.href = `/order/${orderToken}`;
+      } else {
+        if (orderToken) {
+          window.location.href = `/order/${orderToken}`;
+        } else {
+          alert('Заявка принята! Мастер свяжется с вами.');
+        }
+      }
+    }
+
+    // ================= TOAST HELPER ================= //
+    let toastTimeout = null;
+    function showToast(text) {
+      const toast = document.getElementById('app-toast');
+      document.getElementById('toast-text').textContent = text;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      initSettings();
+      setSliderPosition(50);
+      updateThemeUI(document.documentElement.dataset.theme || 'light');
+      setupPhoneMask();
+
+      // Default date to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const yyyy = tomorrow.getFullYear();
+      const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const dd = String(tomorrow.getDate()).padStart(2, '0');
+      const dateInput = document.getElementById('order-date');
+      if (dateInput) dateInput.value = `${yyyy}-${mm}-${dd}`;
+    });
+  </script>
+</body>
+</html>
