@@ -34,15 +34,23 @@
   <link rel="preload" as="image" href="/images/chair_clean.webp" />
   <link rel="preload" as="image" href="/images/chair_dirty.webp" />
 
-  <!-- Authentic Fonts: Onest & Space Grotesk -->
+  <!-- Clean Modern Typography: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Original CSS Stylesheet -->
   <link rel="stylesheet" href="/styles.css" />
 
   <style>
+    :root {
+      --font-onest: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+      --font-price: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }
+    *, html, body, button, input, select, textarea, .price {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    }
+
     /* Atmospheric Apple-style Background */
     body {
       background:
@@ -583,10 +591,33 @@
     :root[data-theme=dark] .clean-type-btn.active {
       background: rgba(33, 109, 229, 0.18);
     }
-    .clean-type-icon {
-      font-size: 19px;
+    .clean-type-radio {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      line-height: 1;
+      transition: all 0.15s ease;
+      background: var(--surface);
+    }
+    .clean-type-btn.active .clean-type-radio {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+    .clean-type-radio:after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .clean-type-btn.active .clean-type-radio:after {
+      opacity: 1;
     }
     .clean-type-info {
       display: flex;
@@ -801,7 +832,7 @@
                 </div>
                 <div class="cleaning-types-grid" role="radiogroup">
                   <button type="button" class="clean-type-btn active" data-type="dirt" onclick="setCleanType('dirt')">
-                    <span class="clean-type-icon">🧼</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info">
                       <strong>От грязи и пятен</strong>
                       <small>Глубокая экстракция пыли, разводов и засаленности</small>
@@ -810,7 +841,7 @@
                   </button>
 
                   <button type="button" class="clean-type-btn" data-type="odor" onclick="setCleanType('odor')">
-                    <span class="clean-type-icon">🌸</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info">
                       <strong>От запаха</strong>
                       <small>Удаление запаха мочи животных, табака, сырости</small>
@@ -819,7 +850,7 @@
                   </button>
 
                   <button type="button" class="clean-type-btn" data-type="allergy" onclick="setCleanType('allergy')">
-                    <span class="clean-type-icon">🌿</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info">
                       <strong>Гипоаллергенная</strong>
                       <small>Эко-составы, безопасно для детей и животных</small>
@@ -828,7 +859,7 @@
                   </button>
 
                   <button type="button" class="clean-type-btn" data-type="complex" onclick="setCleanType('complex')">
-                    <span class="clean-type-icon">⭐</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info">
                       <strong>Комплексная (Всё включено)</strong>
                       <small>Грязь + запахи + гипоаллергенная промывка</small>
@@ -897,19 +928,19 @@
                 </div>
                 <div class="cleaning-types-grid" role="radiogroup">
                   <button type="button" class="clean-type-btn active" data-type-custom="dirt" onclick="setCustomCleanType('dirt')">
-                    <span class="clean-type-icon">🧼</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info"><strong>От грязи и пятен</strong></span>
                   </button>
                   <button type="button" class="clean-type-btn" data-type-custom="odor" onclick="setCustomCleanType('odor')">
-                    <span class="clean-type-icon">🌸</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info"><strong>От запаха</strong></span>
                   </button>
                   <button type="button" class="clean-type-btn" data-type-custom="allergy" onclick="setCustomCleanType('allergy')">
-                    <span class="clean-type-icon">🌿</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info"><strong>Гипоаллергенная</strong></span>
                   </button>
                   <button type="button" class="clean-type-btn" data-type-custom="complex" onclick="setCustomCleanType('complex')">
-                    <span class="clean-type-icon">⭐</span>
+                    <span class="clean-type-radio"></span>
                     <span class="clean-type-info"><strong>Комплексная</strong></span>
                   </button>
                 </div>
@@ -1020,7 +1051,10 @@
           <!-- Photo Note Block (Photos sent directly in messenger chat) -->
           <div class="checkout-block photo-panel" style="background: rgba(33, 109, 229, 0.05); border: 1px dashed rgba(33, 109, 229, 0.3);">
             <div class="row" style="gap: 12px; align-items: flex-start;">
-              <span style="font-size: 26px;">📸</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent); flex-shrink: 0; margin-top: 2px;">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
               <div style="flex: 1;">
                 <strong style="font-size: 15px; display: block; margin-bottom: 4px;">Фотографии мебели</strong>
                 <p class="section-note" style="margin: 0; font-size: 13px; line-height: 1.45;">
@@ -1250,13 +1284,13 @@
         <h2>Почему нельзя чистить диван бытовой пеной</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 14px;">
           <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 16px; padding: 18px; color: #991b1b;">
-            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">❌ Бытовая пена из магазина (Ваниш)</strong>
+            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">Бытовая пена из магазина (Ваниш)</strong>
             <p style="font-size: 13px; margin: 0; line-height: 1.5;">
               Загоняет грязь вглубь поролона. Не вымывается и застывает липким мыльным слоем, притягивая в 3 раза больше пыли уже через неделю.
             </p>
           </div>
           <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 18px; color: #166534;">
-            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">✓ Профессиональная экстракция</strong>
+            <strong style="display: block; font-size: 15px; margin-bottom: 6px;">Профессиональная экстракция</strong>
             <p style="font-size: 13px; margin: 0; line-height: 1.5;">
               Полное физическое удаление грязи из ткани в бак пылесоса. Обивка нейтрализуется и остается безопасной для детей и животных.
             </p>
@@ -1299,6 +1333,14 @@
             <strong id="contact-wa-val">+7 (950) 299-22-21</strong>
           </span>
           <a class="button secondary" id="btn-open-wa" href="https://wa.me/79502992221" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
+        </div>
+
+        <div class="contact-option">
+          <span>
+            <small class="muted">Telegram</small>
+            <strong id="contact-tg-val">+7 (950) 299-22-21</strong>
+          </span>
+          <a class="button secondary" id="btn-open-tg" href="https://t.me/+79502992221" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Открыть</a>
         </div>
 
         <div class="contact-option">
@@ -1423,6 +1465,11 @@
       if (waVal) waVal.textContent = CONFIG.phone;
       const waBtn = document.getElementById('btn-open-wa');
       if (waBtn) waBtn.href = `https://wa.me/${CONFIG.whatsappPhone.replace(/\D/g, '')}`;
+
+      const tgVal = document.getElementById('contact-tg-val');
+      if (tgVal) tgVal.textContent = CONFIG.phone;
+      const tgBtn = document.getElementById('btn-open-tg');
+      if (tgBtn) tgBtn.href = `https://t.me/+${CONFIG.whatsappPhone.replace(/\D/g, '')}`;
 
       const areaBadge = document.getElementById('contacts-area-badge');
       if (areaBadge && CONFIG.area) areaBadge.textContent = CONFIG.area;
@@ -2138,15 +2185,15 @@
       const messageText = 
 `Здравствуйте! Хочу оформить выездную химчистку:
 
-🛋 Мебель в заказе:
+Мебель в заказе:
 ${itemsText}
 
-💰 Итоговая стоимость: ${totalStr}
-📍 Адрес: ${address}
-📅 Время визита: ${orderDate || 'Ближайшая дата'} (${orderTime})
-👤 Клиент: ${name} (${phone})
-${comment ? `💬 Пожелания: ${comment}\n` : ''}
-📸 Фотографии мебели: отправлю в этот чат`;
+Итоговая стоимость: ${totalStr}
+Адрес: ${address}
+Время визита: ${orderDate || 'Ближайшая дата'} (${orderTime})
+Клиент: ${name} (${phone})
+${comment ? `Пожелания: ${comment}\n` : ''}
+Фотографии мебели: прикрепляю в чат`;
 
       // 3. Dispatch to Messenger
       const encodedMsg = encodeURIComponent(messageText);
@@ -2157,8 +2204,8 @@ ${comment ? `💬 Пожелания: ${comment}\n` : ''}
         window.open(waUrl, '_blank');
         if (orderToken) window.location.href = `/order/${orderToken}`;
       } else if (channel === 'telegram') {
-        const tgUser = (CONFIG.telegramUsername || 'andrew_vartian').replace(/^@/, '');
-        const tgUrl = `https://t.me/${tgUser}?text=${encodedMsg}`;
+        const tgClean = (CONFIG.whatsappPhone || '79502992221').replace(/\D/g, '');
+        const tgUrl = `https://t.me/+${tgClean}?text=${encodedMsg}`;
         window.open(tgUrl, '_blank');
         if (orderToken) window.location.href = `/order/${orderToken}`;
       } else {
