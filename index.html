@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>мягко — выездная химчистка мебели</title>
-  <meta name="description" content="Выездная чистка диванов, кресел, матрасов и стульев. Расчёт по тарифам, оценка по фото и выезд в удобный день." />
+  <title>Химчистка мебели · Владивосток</title>
+  <meta name="description" content="Выездная чистка диванов, кресел, матрасов и стульев во Владивостоке и пригороде. Расчёт по тарифам и выезд в удобный день." />
   <meta name="theme-color" content="#f5f7fb" id="meta-theme-color" />
   <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
@@ -857,7 +857,7 @@
             </div>
 
             <label class="check-row address-outside" for="order-outside-city">
-              <span>Выезд за пределы города / МКАД (+500 ₽)</span>
+              <span>Выезд в пригород / за город (+500 ₽)</span>
               <input type="checkbox" id="order-outside-city" onchange="renderCheckoutSummary()" />
             </label>
 
@@ -1141,40 +1141,32 @@
       </button>
 
       <div>
-        <span class="badge" id="contacts-area-badge" style="margin-bottom: 8px;">Москва и Подмосковье</span>
+        <span class="badge" id="contacts-area-badge" style="margin-bottom: 8px;">Владивосток и пригород</span>
         <h1 style="font-size: 40px; letter-spacing: -0.03em;">Будем на связи</h1>
-        <p class="muted" style="margin-top: 8px;">Принимаем заявки круглосуточно. Выезд мастеров ежедневно с 08:00 до 22:00.</p>
+        <p class="muted" style="margin-top: 8px;">Принимаем заявки круглосуточно. Выезд мастеров по Владивостоку и пригороду.</p>
       </div>
 
       <div class="panel contact-card">
         <div class="contact-option">
           <span>
-            <small class="muted">Телефон диспетчера</small>
-            <strong id="contact-phone-val">+7 (495) 120-44-88</strong>
+            <small class="muted">Телефон мастера</small>
+            <strong id="contact-phone-val">+7 (950) 299-22-21</strong>
           </span>
-          <a class="button secondary" id="btn-call-phone" href="tel:+74951204488" style="width: auto; min-height: 40px; padding: 8px 16px;">Позвонить</a>
+          <a class="button secondary" id="btn-call-phone" href="tel:+79502992221" style="width: auto; min-height: 40px; padding: 8px 16px;">Позвонить</a>
         </div>
 
         <div class="contact-option">
           <span>
             <small class="muted">WhatsApp мастера</small>
-            <strong id="contact-wa-val">+7 (999) 120-44-88</strong>
+            <strong id="contact-wa-val">+7 (950) 299-22-21</strong>
           </span>
-          <a class="button secondary" id="btn-open-wa" href="https://wa.me/79991204488" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
-        </div>
-
-        <div class="contact-option">
-          <span>
-            <small class="muted">Telegram</small>
-            <strong id="contact-tg-val">@andrew_vartian</strong>
-          </span>
-          <a class="button secondary" id="btn-open-tg" href="https://t.me/andrew_vartian" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Открыть</a>
+          <a class="button secondary" id="btn-open-wa" href="https://wa.me/79502992221" target="_blank" style="width: auto; min-height: 40px; padding: 8px 16px;">Написать</a>
         </div>
 
         <div class="contact-option">
           <span>
             <small class="muted">Зона выезда</small>
-            <strong style="font-size: 18px;" id="contact-zone-val">Вся Москва + до 30 км за МКАД</strong>
+            <strong style="font-size: 18px;" id="contact-zone-val">Владивосток, Артём и пригород (до 30 км)</strong>
           </span>
         </div>
       </div>
@@ -1193,12 +1185,12 @@
   <script>
     // Dynamic Settings
     let CONFIG = {
-      name: "мягко",
-      city: "Москва",
-      area: "Москва и Подмосковье",
-      phone: "+7 (924) 591-54-95",
-      whatsappPhone: "792459154958",
-      telegramUsername: "andrew_vartian",
+      name: "Химчистка · Владивосток",
+      city: "Владивосток",
+      area: "Владивосток и пригород",
+      phone: "+7 (950) 299-22-21",
+      whatsappPhone: "79502992221",
+      telegramUsername: "",
       minimum: 2000,
       travel: 500,
       dirtPercent: 20,
@@ -1216,9 +1208,9 @@
           badge: "Ткань и кожа",
           quote: "Пятна от кофе, чая и еды исчезают за 40 минут.",
           variants: [
-            { id: "two", label: "2 места", basePrice: 1800, rateKey: "sofa_two" },
-            { id: "three", label: "3 места", basePrice: 2400, rateKey: "sofa_three" },
-            { id: "corner", label: "Угловой", basePrice: 3400, rateKey: "sofa_corner" }
+            { id: "two", label: "2 места", basePrice: 2000, rateKey: "sofa_two" },
+            { id: "three", label: "3 места", basePrice: 2600, rateKey: "sofa_three" },
+            { id: "corner", label: "Угловой", basePrice: 3600, rateKey: "sofa_corner" }
           ]
         },
         armchair: {
@@ -1236,8 +1228,8 @@
           quote: "Удаление желтизны, застарелых разводов и пылевых клещей.",
           hasBothSides: true,
           variants: [
-            { id: "single", label: "Односпальный", basePrice: 1400, rateKey: "mattress_single" },
-            { id: "double", label: "Двуспальный", basePrice: 2000, rateKey: "mattress_double" }
+            { id: "single", label: "Односпальный", basePrice: 1500, rateKey: "mattress_single" },
+            { id: "double", label: "Двуспальный", basePrice: 2200, rateKey: "mattress_double" }
           ]
         },
         chair: {
@@ -1245,8 +1237,8 @@
           badge: "Обеденная зона",
           quote: "Обивка стульев снова как из салона — свежая и яркая.",
           variants: [
-            { id: "seat", label: "Только сиденье", basePrice: 350, rateKey: "chair_seat" },
-            { id: "back", label: "Сиденье и спинка", basePrice: 500, rateKey: "chair_back" }
+            { id: "seat", label: "Только сиденье", basePrice: 400, rateKey: "chair_seat" },
+            { id: "back", label: "Сиденье и спинка", basePrice: 600, rateKey: "chair_back" }
           ]
         },
         other: {
@@ -1254,9 +1246,9 @@
           badge: "Индивидуально",
           quote: "Чистим пуфы, изголовья кроватей, подушки и ковры.",
           variants: [
-            { id: "pouf", label: "Пуф / Банкетка", basePrice: 600, rateKey: "other_pouf" },
-            { id: "carpet", label: "Ковер (до 6 м²)", basePrice: 1500, rateKey: "other_carpet" },
-            { id: "pillow", label: "Подушка", basePrice: 250, rateKey: "other_pillow" }
+            { id: "pouf", label: "Пуф / Банкетка", basePrice: 700, rateKey: "other_pouf" },
+            { id: "carpet", label: "Ковер (до 6 м²)", basePrice: 1800, rateKey: "other_carpet" },
+            { id: "pillow", label: "Подушка", basePrice: 300, rateKey: "other_pillow" }
           ]
         }
       }
@@ -1269,8 +1261,27 @@
     let cart = [];
     let uploadedPhotos = [];
 
+    function applyConfigToUI() {
+      const pVal = document.getElementById('contact-phone-val');
+      if (pVal) pVal.textContent = CONFIG.phone;
+      const callBtn = document.getElementById('btn-call-phone');
+      if (callBtn) callBtn.href = `tel:${CONFIG.phone.replace(/[^0-9+]/g, '')}`;
+
+      const waVal = document.getElementById('contact-wa-val');
+      if (waVal) waVal.textContent = CONFIG.phone;
+      const waBtn = document.getElementById('btn-open-wa');
+      if (waBtn) waBtn.href = `https://wa.me/${CONFIG.whatsappPhone.replace(/\D/g, '')}`;
+
+      const areaBadge = document.getElementById('contacts-area-badge');
+      if (areaBadge && CONFIG.area) areaBadge.textContent = CONFIG.area;
+
+      const zoneVal = document.getElementById('contact-zone-val');
+      if (zoneVal) zoneVal.textContent = `${CONFIG.city}, Артём и пригород (до 30 км)`;
+    }
+
     // Load Settings from Server
     async function initSettings() {
+      applyConfigToUI();
       try {
         const res = await fetch('/api/settings');
         if (res.ok) {
@@ -1307,21 +1318,12 @@
             }
           }
 
-          // Update contacts
-          const pVal = document.getElementById('contact-phone-val');
-          if (pVal) pVal.textContent = CONFIG.phone;
-          const callBtn = document.getElementById('btn-call-phone');
-          if (callBtn) callBtn.href = `tel:${CONFIG.phone.replace(/[^0-9+]/g, '')}`;
-
-          const waVal = document.getElementById('contact-wa-val');
-          if (waVal) waVal.textContent = `+${CONFIG.whatsappPhone}`;
-          const waBtn = document.getElementById('btn-open-wa');
-          if (waBtn) waBtn.href = `https://wa.me/${CONFIG.whatsappPhone}`;
+          applyConfigToUI();
 
           const tgVal = document.getElementById('contact-tg-val');
-          if (tgVal) tgVal.textContent = `@${CONFIG.telegramUsername}`;
+          if (tgVal && CONFIG.telegramUsername) tgVal.textContent = `@${CONFIG.telegramUsername}`;
           const tgBtn = document.getElementById('btn-open-tg');
-          if (tgBtn) tgBtn.href = `https://t.me/${CONFIG.telegramUsername}`;
+          if (tgBtn && CONFIG.telegramUsername) tgBtn.href = `https://t.me/${CONFIG.telegramUsername}`;
 
           const maxBtn = document.getElementById('btn-open-max');
           if (maxBtn && CONFIG.maxUrl) maxBtn.href = CONFIG.maxUrl;
@@ -1966,7 +1968,7 @@ ${comment ? `💬 Пожелания: ${comment}\n` : ''}
       const encodedMsg = encodeURIComponent(messageText);
 
       if (channel === 'whatsapp') {
-        const waClean = (CONFIG.whatsappPhone || '792459154958').replace(/\D/g, '');
+        const waClean = (CONFIG.whatsappPhone || '79502992221').replace(/\D/g, '');
         const waUrl = `https://wa.me/${waClean}?text=${encodedMsg}`;
         window.open(waUrl, '_blank');
         if (orderToken) window.location.href = `/order/${orderToken}`;
